@@ -22,8 +22,10 @@ def bake_time_remaining(current_minutes_in_oven):
     an argument and returns how many minutes the lasagna still needs to bake
     based on the `EXPECTED_BAKE_TIME`.
     """
+    if current_minutes_in_oven >= EXPECTED_BAKE_TIME:
+        return 0
 
-    
+    return EXPECTED_BAKE_TIME - current_minutes_in_oven
 
 
 def preparation_time_in_minutes(number_of_layers):
@@ -34,9 +36,9 @@ def preparation_time_in_minutes(number_of_layers):
 
     Function that takes minutes that each lasagna layer takes to be prepared
     and takes as argument time to each layer and return the preparation time in minutes
-    """
+    """ 
 
-    
+    return number_of_layers * TIME_BY_LAYER
 
 
 def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
@@ -49,5 +51,5 @@ def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
     Function returns the total number of minutes you've been cooking, or the sum of your
     preparation time and the time the lasagna has already spent baking in the oven.
     """
-    
+    return (number_of_layers * TIME_BY_LAYER) + elapsed_bake_time
     
